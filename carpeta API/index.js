@@ -27,6 +27,10 @@ const Mensaje = mongoose.model('Mensaje', {
 });
 
 // Endpoint principal
+app.get('/', (req, res) => {
+  res.send('✅ API ESP32 MongoDB está en línea');
+});
+
 app.get('/ultimo-mensaje', async (req, res) => {
   try {
     const data = await Mensaje.findOne().sort({ _id: -1 });
